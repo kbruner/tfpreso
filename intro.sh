@@ -1,20 +1,26 @@
 #!/bin/bash
 
+width=80
+
 clear
-figlet -c 'From Zero to Hello World'
-figlet -c -f smslant 'with'
-figlet -c -f big 'Terraform'
+figlet -c -w "$width" -f standard 'From Zero'
+figlet -c -w "$width" -f mini 'to'
+figlet -c -w "$width" -f slant 'Hello Terraform'
 
-read -t 3 -n 1
+echo
+echo
+sleep 5
 
-echo 'About to kick off terraform -apply'
+echo 'Hit enter to kick off terraform -apply'
 
-read -t 3 -n 1
+while [ true ]; do
+  read -t 3 -n 1
+  if [ $? = 0 ]; then
+    break
+  fi
+done
 
 cd terraform
 
 terraform init
-
-read -t 3 -n 1
-
 terraform apply -auto-approve
