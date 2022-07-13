@@ -21,7 +21,7 @@ module "eks" {
   create_kms_key = false
 
   vpc_id                   = module.vpc.vpc_id
-  subnet_ids               = module.vpc.private_subnets
+  subnet_ids               = module.vpc.public_subnets
   control_plane_subnet_ids = module.vpc.intra_subnets
 
   eks_managed_node_group_defaults = {
