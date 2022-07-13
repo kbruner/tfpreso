@@ -22,5 +22,5 @@ done
 
 cd terraform
 
-terraform init
-terraform apply -auto-approve
+time terraform init
+time terraform apply -auto-approve
